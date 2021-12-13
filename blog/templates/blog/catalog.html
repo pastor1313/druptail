@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-catalog{% endblock %}
+
+{% block content %}
+    <h1>Drupal Articles</h1>
+    <ul>
+    {% for subpage in page.get_children %}
+        <li><a href="{% pageurl subpage %}">{{ subpage.title }}</a></li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
